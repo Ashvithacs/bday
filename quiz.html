@@ -5,50 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How Well Do You Know Us?</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #ffe6f2;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+        }
+        .quiz-card {
+            background: #ffb6c1;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 4px 4px 10px rgba(255, 105, 180, 0.4);
+            transition: 0.3s;
+        }
+        .quiz-card:hover {
+            transform: scale(1.02);
+        }
+        .btn-submit {
+            background-color: #ff69b4;
+            border: none;
+            font-size: 20px;
+        }
+        .btn-submit:hover {
+            background-color: #ff1493;
+        }
+    </style>
 </head>
 <body class="container mt-4">
-    <h1 class="text-warning text-center">🧠 How Well Do You Know Us? 🧠</h1>
-
+    <h1 class="text-danger">💖 How Well Do You Know Us? 💖</h1>
     <form id="quizForm">
-        <div class="card p-3 my-3">
-            <h3>What’s our favorite midnight snack?</h3>
-            <input type="radio" name="q1" value="A"> A. Ice Cream 🍦<br>
-            <input type="radio" name="q1" value="B"> B. Fries 🍟 (Correct)<br>
-            <input type="radio" name="q1" value="C"> C. Pizza 🍕<br>
-        </div>
-
-        <div class="card p-3 my-3">
-            <h3>Where did we first meet?</h3>
-            <input type="radio" name="q2" value="A"> A. College 🎓<br>
-            <input type="radio" name="q2" value="B"> B. Party 🎉<br>
-            <input type="radio" name="q2" value="C"> C. School 🏫 (Correct)<br>
-        </div>
-
-        <button type="button" class="btn btn-success" onclick="checkAnswers()">Submit</button>
+        <div id="quizContainer"></div>
+        <button type="button" class="btn btn-submit mt-4" onclick="checkAnswers()">Submit</button>
     </form>
-
-    <p id="result" class="mt-3 fw-bold"></p>
-
-    <script>
-        function checkAnswers() {
-            let score = 0;
-            let answers = {q1: "B", q2: "C"};
-
-            for (let q in answers) {
-                let selected = document.querySelector(`input[name="${q}"]:checked`);
-                if (selected && selected.value === answers[q]) {
-                    score++;
-                }
-            }
-
-            let resultText = score === 2 ? "🎉 You know us well! Bestie Level: 100%!" : "Oops! You failed as a friend. 😭";
-            document.getElementById("result").innerHTML = resultText;
-        }
-    </script>
-
+    <p id="result" class="mt-3 fw-bold text-dark"></p>
+    
     <nav>
         <a href="memory.html" class="btn btn-secondary mt-3">⬅ Back to Memory Lane</a>
         <a href="reasons.html" class="btn btn-primary mt-3">➡ Next: 22 Reasons We Love You</a>
     </nav>
+    
+    <script>
+        const questions = [
+            { q: "What's our favorite midnight snack?", options: ["Ice Cream 🍦", "Fries 🍟", "Pizza 🍕"], answer: "Fries 🍟" },
+            { q: "Where did we first meet?", options: ["College 🎓", "Party 🎉", "School 🏫"], answer: "School 🏫" },
+            { q: "What's our go-to comfort movie?", options: ["Clueless 💅", "Mean Girls 💖", "Legally Blonde 🎓"], answer: "Mean Girls 💖" },
+            { q: "Our dream vacation spot?", options: ["Paris 🇫🇷", "Bali 🌴", "Tokyo 🏯"], answer: "Paris 🇫🇷" },
+            { q: "Favorite drink?", options: ["Bubble Tea 🧋", "Coffee ☕", "Pink Lemonade 🍋"], answer: "Bubble Tea 🧋" },
+            { q: "Who is our ultimate celeb crush?", options: ["Harry Styles 🎤", "Chris Evans 🦸", "Ryan Gosling 💕"], answer: "Chris Evans 🦸" },
+            { q: "Which pet would we get first?", options: ["Golden Retriever 🐶", "Persian Cat 🐱", "Bunny 🐰"], answer: "Golden Retriever 🐶" },
+            { q: "What color dominates our wardrobe?", options: ["Black 🖤", "Pink 💖", "Blue 💙"], answer: "Pink 💖" },
+            { q: "Go-to dessert?", options: ["Brownies 🍫", "Cheesecake 🍰", "Donuts 🍩"], answer: "Cheesecake 🍰" },
+            { q: "If we had a band, what would we call it?", options: ["The Glitter Squad ✨", "Pink Storm 🌸", "Bubblegum Beats 🎶"], answer: "Pink Storm 🌸" },
+            { q: "Our favorite season?", options: ["Winter ❄️", "Spring 🌸", "Summer ☀️"], answer: "Spring 🌸" },
+            { q: "Which app are we addicted to?", options: ["Instagram 📸", "Pinterest 🎨", "TikTok 🎶"], answer: "TikTok 🎶" },
+            { q: "What's our guilty pleasure?", options: ["Reality TV 📺", "Online Shopping 🛍️", "Late Night Snacks 🍫"], answer: "Online Shopping 🛍️" },
+            { q: "How do we like our coffee?", options: ["Iced Latte 🧊", "Espresso ☕", "Frappuccino 🍫"], answer: "Iced Latte 🧊" },
+            { q: "Our ideal Friday night?", options: ["Netflix & Chill 📺", "Clubbing 🎉", "Sleepover & Snacks 🍕"], answer: "Sleepover & Snacks 🍕" },
+            { q: "What’s our favorite holiday?", options: ["Christmas 🎄", "Halloween 🎃", "Valentine’s Day 💖"], answer: "Christmas 🎄" },
+            { q: "Favorite flower?", options: ["Roses 🌹", "Sunflowers 🌻", "Cherry Blossoms 🌸"], answer: "Cherry Blossoms 🌸" },
+            { q: "Our dream job?", options: ["Fashion Designer 👗", "Influencer 📸", "CEO 💼"], answer: "Fashion Designer 👗" },
+            { q: "What’s our biggest fear?", options: ["Spiders 🕷️", "Public Speaking 🎤", "Being without WiFi 📶"], answer: "Being without WiFi 📶" },
+            { q: "Favorite scent?", options: ["Vanilla 🍦", "Lavender 🌿", "Coconut 🥥"], answer: "Vanilla 🍦" },
+            { q: "How do we relax?", options: ["Bubble Baths 🛁", "Face Masks 💆", "Reading a Book 📚"], answer: "Bubble Baths 🛁" }
+        ];
+
+        let quizContainer = document.getElementById("quizContainer");
+        questions.forEach((item, index) => {
+            let questionHTML = `<div class='quiz-card my-3'><h3>${index + 1}. ${item.q}</h3>`;
+            item.options.forEach(option => {
+                questionHTML += `<input type='radio' name='q${index}' value='${option}'> ${option}<br>`;
+            });
+            questionHTML += `</div>`;
+            quizContainer.innerHTML += questionHTML;
+        });
+
+        function checkAnswers() {
+            let score = 0;
+            questions.forEach((item, index) => {
+                let selected = document.querySelector(`input[name='q${index}']:checked`);
+                if (selected && selected.value === item.answer) {
+                    score++;
+                }
+            });
+            document.getElementById("result").innerHTML = `⭐ You scored ${score}/22! ${score >= 18 ? "Bestie Level: 100%! 💕" : "We need to have a talk! 😂"}`;
+        }
+    </script>
 </body>
 </html>

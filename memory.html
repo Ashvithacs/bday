@@ -1,25 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memory Lane</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🎀 Memory Lane for Rolls! 🎂</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Lightbox CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css"
+  />
+
+  <!-- Google Fonts -->
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* Reset + Box Sizing */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body with background image (same as first page) */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: url('1\ \(2\).jpeg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 2rem 1rem;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Main container with frosted-glass look */
+    .content {
+      background: rgba(255, 182, 193, 0.9); /* Soft pink overlay */
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      max-width: 1200px;
+      width: 100%;
+      margin-bottom: 2rem;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    /* Fade in animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Title styling (matching first page) */
+    h1.main-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      color: #ff5e78;
+      text-shadow: 2px 2px 10px rgba(255, 105, 180, 0.7);
+      margin-bottom: 1rem;
+    }
+
+    /* Nav tabs style */
+    .nav-tabs {
+      border-bottom: none;
+      justify-content: center;
+    }
+    .nav-tabs .nav-link {
+      color: #ff5e78;
+      font-weight: 600;
+      border: none;
+      font-size: 1.1rem;
+      transition: 0.3s;
+    }
+    .nav-tabs .nav-link:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    .nav-tabs .nav-link.active {
+      background-color: #ff5e78;
+      color: #fff !important;
+      border-radius: 15px 15px 0 0;
+    }
+
+    /* Image gallery grid */
+    .image-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 15px;
+      padding: 1.5rem;
+      justify-content: center;
+    }
+
+    /* Image styling + glow on hover */
+    .image-gallery a img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .image-gallery a img:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 10px 5px rgba(255, 105, 180, 0.4);
+    }
+
+    /* Buttons matching pink style from first page */
+    .btn-fun {
+      background-color: #ff5e78;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.3s;
+      text-decoration: none;
+      margin: 0.5rem;
+    }
+    .btn-fun:hover {
+      background-color: #ff3c61;
+    }
+
+    /* Cheesy note at the bottom */
+    .cheesy-note {
+      font-size: 0.9rem;
+      color: #813f3f;
+      margin-top: 2rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+  </style>
 </head>
-<body class="container mt-4">
-    <h1 class="text-primary text-center">📸 Memory Lane 📸</h1>
 
-    <div class="row">
-        <div class="col-md-4"><img src="1.jpeg" class="img-fluid rounded"></div>
-        <div class="col-md-4"><img src="2.jpeg" class="img-fluid rounded"></div>
-        <div class="col-md-4"><img src="3.jpeg" class="img-fluid rounded"></div>
-        <div class="col-md-4"><img src="4.jpeg" class="img-fluid rounded"></div>
+<body>
+  <div class="content">
+    <!-- Title -->
+    <h1 class="main-title">📸 Memory Lane for Rolls! 💖</h1>
 
+    <!-- Tabs for different sections -->
+    <ul class="nav nav-tabs mb-4" id="memoryTabs">
+      <li class="nav-item">
+        <a class="nav-link active" data-bs-toggle="tab" href="#general">✨ Best Memories</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" href="#crushes">🔥 Crushes & Exes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" href="#funny">😂 Funny Moments</a>
+      </li>
+    </ul>
+
+    <!-- Tab content -->
+    <div class="tab-content">
+      <!-- General Memories -->
+      <div class="tab-pane fade show active" id="general">
+        <div class="image-gallery">
+          <script>
+            for (let i = 1; i <= 20; i++) {
+              document.write(`
+                <a href="anna/${i}.jpg" data-lightbox="general">
+                  <img src="anna/${i}.jpg" alt="Memory ${i}">
+                </a>
+              `);
+            }
+          </script>
+        </div>
+      </div>
+
+      <!-- Crushes & Exes -->
+      <div class="tab-pane fade" id="crushes">
+        <div class="image-gallery">
+          <script>
+            for (let i = 22; i <= 34; i++) {
+              document.write(`
+                <a href="anna/${i}.jpg" data-lightbox="crushes">
+                  <img src="anna/${i}.jpg" alt="Crush ${i}">
+                </a>
+              `);
+            }
+          </script>
+        </div>
+      </div>
+
+      <!-- Funny Moments -->
+      <div class="tab-pane fade" id="funny">
+        <div class="image-gallery">
+          <script>
+            for (let i = 35; i <= 59; i++) {
+              document.write(`
+                <a href="anna/${i}.jpg" data-lightbox="funny">
+                  <img src="anna/${i}.jpg" alt="Funny ${i}">
+                </a>
+              `);
+            }
+          </script>
+        </div>
+      </div>
     </div>
 
-    <nav>
-        <a href="index.html" class="btn btn-secondary mt-3">⬅ Back to Home</a>
-        <a href="quiz.html" class="btn btn-warning mt-3">Start Quiz ➡</a>
+    <!-- Navigation Buttons -->
+    <nav class="mt-3">
+      <a href="index.html" class="btn-fun">⬅ Back to Home</a>
+      <a href="quiz.html" class="btn-fun">✨ Start Fun Quiz! ➡</a>
     </nav>
+
+    <p class="cheesy-note">Hope you love these, even the embarrassing ones! 😆💕</p>
+  </div>
+
+  <!-- Bootstrap & Lightbox JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 </body>
 </html>
