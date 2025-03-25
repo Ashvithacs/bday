@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎀 Happy Birthday, Rolls! 🎂</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('15.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .content {
+            background: rgba(255, 182, 193, 0.9); /* Soft pink */
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4rem;
+            color: #ff5e78;
+            text-shadow: 2px 2px 10px rgba(255, 105, 180, 0.7);
+            margin-bottom: 0.5rem; /* Reduced margin */
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .gift-box {
+            font-size: 4rem;
+            cursor: pointer;
+            animation: pulse 2s infinite alternate;
+            transition: transform 0.4s;
+            margin-top: 1rem; /* Added margin */
+        }
+
+        .gift-box:hover {
+            transform: scale(1.2);
+        }
+
+        @keyframes pulse {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+
+        .music-btn {
+            margin-top: 1.5rem; /* Increased margin */
+            padding: 10px 20px;
+            background: #ff5e78;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        .music-btn:hover {
+            background: #ff3c61;
+        }
+
+        .cheesy-note {
+            font-size: 0.9rem;
+            color: #813f3f; /* Even softer pink */
+            margin-top: 2rem;
+            opacity: 0.8;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>🎀</h1>
+        <h1> Happy Birthday, Rolls! </h1>
+        <h2>🎂🎂🎂🎂🎂</h2>
+
+        <p>Click the gift box for a surprise! ✨</p>
+
+        <a href="memory.html" class="gift-box"><h1>🎁</h1></a>
+        <p class="cheesy-note">Okay, I know this is super cheesy to do this for you, I'm cringing out a bit, but then I wanted to show off my engineering skills. 😉</p>
+    </div>
+
+</body>
+</html>
