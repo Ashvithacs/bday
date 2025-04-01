@@ -1,110 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>22 Reasons You Should Be Friends With Us!</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-image: url('1\ \(2\).jpeg');
-            text-align: center;
-        }
-        h1 {
-            font-family: 'Pacifico', cursive;
-            color: #f5f2f3;
-            margin-top: 20px;
-        }
-        .reason-list {
-            counter-reset: reason-counter;
-            list-style: none;
-            padding: 0;
-        }
-        .reason-list li {
-            counter-increment: reason-counter;
-            background: white;
-            margin: 10px auto;
-            padding: 15px;
-            width: 80%;
-            border-radius: 15px;
-            box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
-            text-align: left;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            transition: transform 0.2s ease-in-out;
-        }
-        .reason-list li:hover {
-            transform: scale(1.03);
-            box-shadow: 3px 5px 12px rgba(0, 0, 0, 0.15);
-        }
-        .reason-list li::before {
-            content: counter(reason-counter);
-            font-size: 20px;
-            font-weight: bold;
-            color: white;
-            background: #ff69b4;
-            border-radius: 50%;
-            width: 35px;
-            height: 35px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-        }
-        .btn-container {
-            margin-top: 20px;
-        }
-        .btn-birthday {
-            background-color: #ff69b4;
-            color: white;
-            font-weight: bold;
-            border: none;
-            padding: 12px 20px;
-            font-size: 18px;
-            border-radius: 10px;
-            box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
-            transition: 0.3s ease-in-out;
-        }
-        .btn-birthday:hover {
-            background-color: #ff1493;
-            transform: scale(1.05);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>22 Reasons You Should Be Friends With Us!</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-image: url('1\ \(2\).jpeg');
+      text-align: center;
+      box-shadow: 0 0 5px rgba(255, 105, 180, 0.8),
+               0 0 10px rgba(255, 105, 180, 0.8),
+               0 0 15px rgba(255, 105, 180, 0.8);
+    }
+    h1 {
+      font-family: 'Pacifico', cursive;
+      color: #f5f2f3;
+      margin-top: 20px;
+      text-shadow: 0 0 5px rgba(255, 105, 180, 0.8),
+               0 0 10px rgba(255, 105, 180, 0.8),
+               0 0 15px rgba(255, 105, 180, 0.8);
+    }
+    .reason-list {
+      list-style: none;
+      padding: 0;
+      text-shadow: 0 0 5px rgba(255, 105, 180, 0.8),
+               0 0 10px rgba(255, 105, 180, 0.8),
+               0 0 15px rgba(255, 105, 180, 0.8);
+    }
+    .reason-list li {
+      background: rgba(255, 182, 193, 0.9);
+      margin: 10px auto;
+      padding: 15px;
+      width: 80%;
+      border-radius: 15px;
+      box-shadow: 0 0 5px rgba(255, 105, 180, 0.8),
+      0 0 10px rgba(255, 105, 180, 0.8),
+      0 0 15px rgba(255, 105, 180, 0.8);      text-align: left;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      transition: transform 0.2s ease-in-out;
+      
+    }
+    .reason-list li:hover {
+      transform: scale(1.03);
+      box-shadow: 3px 5px 12px rgba(0, 0, 0, 0.15);
+    }
+    /* Use the bow emoji as the bullet */
+    .reason-list li::before {
+      content: "🎀 ";
+      font-size: 20px;
+      margin-right: 15px;
+      text-shadow: 0 0 5px rgba(255, 105, 180, 0.8),
+               0 0 10px rgba(255, 105, 180, 0.8),
+               0 0 15px rgba(255, 105, 180, 0.8);
+    }
+    .btn-container {
+      margin-top: 20px;
+      
+    }
+    .btn-birthday {
+      background-color: #ff69b4;
+      color: white;
+      font-weight: bold;
+      border: none;
+      padding: 12px 20px;
+      font-size: 18px;
+      border-radius: 10px;
+      box-shadow: 0 0 5px rgba(255, 105, 180, 0.8),
+      0 0 10px rgba(255, 105, 180, 0.8),
+      0 0 15px rgba(255, 105, 180, 0.8);   
+   transition: 0.3s ease-in-out;
+    }
+    .btn-birthday:hover {
+      background-color: #ff1493;
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 <body>
-    <h1>🌟 22 Reasons Why You Should Be Friends With Us 🌟</h1>
-    <ol class="reason-list">
-        <li>Shaila – Our protector! No matter how long we go without meeting, she makes it feel like no time has passed. 💖</li>
-        <li>Aryan – Looks like a rowdy, but he's always ready to protect his Anna! 💪🔥</li>
-        <li>Varsha – The sweetest! She'll keep reminding you about internships, placements, and future plans while also being super caring. 🤓💼</li>
-        <li>Janani – The ultimate gossip queen. If something’s happening, she already knows (even in another department)! 😂</li>
-        <li>Harshini – Full of energy and always up for fun. Also, she likes to bite people… beware! 😂🐍</li>
-        <li>Manisha – Sweet and a great listener. She might need a little encouragement sometimes, but she gets things done! 🌟</li>
-        <li>Sai – A very talented artist whom you can learn from! 🎨 She talks non-stop but keeps things fun!</li>
-        <li>Adarsh – He knows a lot of people and gets things done. He also made someone lock their phone after I texted back 😆.</li>
-        <li>Thashvi – Your junior from school and the first person you spoke to in college. She can even be your sugar mommy! 😂💸</li>
-        <li>Aryan – Knows literally everyone in college. Go on a date, and he’ll greet half the people there. 😆</li>
-        <li>Ashvitha (me) – Somehow survives all your crazy stuff. I bear the most. 😌</li>
-        <li>Aryan & Adarsh – Connected to multiple clubs. One is a club president, and the other is a secretary. Use them for connections (not that you ever would). 😆</li>
-        <li>Learn patience from me and social skills from Shaila 😂</li>
-        <li>Aryan can cook well, so you can marry him. 👨‍🍳❤️</li>
-        <li>Manisha – Paapa girl but always supportive. 💕</li>
-        <li>Varsha – She values people even though she sometimes talks too much. She is very paapa and always there when you need her. 💖</li>
-        <li>No dull moments with us! Someone is always up to something. 🔥</li>
-        <li>You're surviving college better with us around 📚💪</li>
-        <li>Don’t be jealous that Aryan is hitting on Adarsh! He still likes you; he’s just bi. 😂</li>
-        <li>We put up with all your nonsense. Be thankful! 😆 Even though we bear with you, we'd love to have you around! ❤️</li>
-        <li>Whether it’s exams, heartbreak, or random drama, we’ve got your back. 💖</li>
-        <li>Through all of this, you’ve learned to tolerate our nonsense! You're just stuck. 😆</li>
-    </ol>
-
-    <div class="btn-container">
-        <button class="btn-birthday" onclick="window.location.href='final.html'">
-            🎂 lets go next 🎂
-        </button>
-    </div>
+  <h1>🌟 22 Reasons Why You Should Be Friends With Us 🌟</h1>
+  <ol class="reason-list">
+    <li>Shaila – Our protector! No matter how long we go without meeting, she makes it feel like no time has passed. 💖</li>
+    <li>Aryan – Looks like a rowdy, but he's always ready to protect his Anna! 💪🔥</li>
+    <li>Varsha – The sweetest! She'll keep reminding you about internships, placements, and future plans while also being super caring. 🤓💼</li>
+    <li>Janani – The ultimate gossip queen. If something’s happening, she already knows (even in another department)! 😂</li>
+    <li>Harshini – Full of energy and always up for fun. Also, she likes to bite people… beware! 😂🐍</li>
+    <li>Manisha – Sweet and a great listener. She might need a little encouragement sometimes, but she gets things done! 🌟</li>
+    <li>Sai – A very talented artist whom you can learn from! 🎨 She talks non-stop but keeps things fun!</li>
+    <li>Adarsh – He knows a lot of people and gets things done. He also made someone lock their phone after I texted back 😆.</li>
+    <li>Thashvi – Your junior from school and the first person you spoke to in college. She can even be your sugar mommy! 😂💸</li>
+    <li>Aryan – Knows literally everyone in college. Go on a date, and he’ll greet half the people there. 😆</li>
+    <li>Ashvitha (me) – Somehow survives all your crazy stuff. I bear the most. 😌</li>
+    <li>Aryan & Adarsh – Connected to multiple clubs. One is a club president, and the other is a secretary. Use them for connections (not that you ever would). 😆</li>
+    <li>Learn patience from me and social skills from Shaila 😂</li>
+    <li>Aryan can cook well, so you can marry him. 👨‍🍳❤️</li>
+    <li>Manisha – Paapa girl but always supportive. 💕</li>
+    <li>Varsha – She values people even though she sometimes talks too much. She is very paapa and always there when you need her. 💖</li>
+    <li>No dull moments with us! Someone is always up to something. 🔥</li>
+    <li>You're surviving college better with us around 📚💪</li>
+    <li>Don’t be jealous that Aryan is hitting on Adarsh! He still likes you; he’s just bi!I belive so. 😂</li>
+    <li>We put up with all your nonsense. Be thankful! 😆 Even though we bear with you, we'd love to have you around! ❤️</li>
+    <li>Whether it’s exams, heartbreak, or random drama, we’ve got your back. 💖</li>
+    <li>Through all of this, you’ve learned to tolerate our nonsense! You're just stuck. 😆</li>
+  </ol>
+  <div class="btn-container">
+    <button class="btn-birthday" onclick="window.location.href='final.html'">
+      🎂 lets go next 🎂
+    </button>
+  </div>
 </body>
 </html>
