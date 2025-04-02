@@ -33,7 +33,7 @@
       box-sizing: border-box;
     }
 
-    /* Body with background image (same as first page) */
+    /* Body with background image */
     body {
       font-family: 'Poppins', sans-serif;
       background: url('1 (2).jpeg') no-repeat center center fixed;
@@ -51,7 +51,7 @@
 
     /* Main container with frosted-glass look */
     .content {
-      background: rgba(255, 182, 193, 0.85); /* Soft pink overlay */
+      background: rgba(255, 182, 193, 0.85);
       backdrop-filter: blur(10px);
       padding: 2rem;
       border-radius: 20px;
@@ -66,23 +66,19 @@
 
     /* Fade in animation */
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Title styling (matching first page) */
+    /* Title styling */
+    /* Added an id "secretTrigger" to attach mobile trigger events */
     h1.main-title {
       font-family: 'Great Vibes', cursive;
       font-size: 3rem;
       color: #ff5e78;
       text-shadow: 2px 2px 10px rgba(255, 105, 180, 0.7);
       margin-bottom: 1rem;
+      cursor: pointer; /* indicates interactive element on mobile */
     }
 
     /* Nav tabs style */
@@ -117,8 +113,6 @@
       padding: 1.5rem;
       justify-content: center;
     }
-
-    /* Image styling + glow on hover */
     .image-gallery a img {
       width: 100%;
       height: 150px;
@@ -132,9 +126,6 @@
     }
     .image-gallery a img:hover {
       transform: scale(1.08);
-      box-shadow: 0 0 5px rgba(255, 105, 180, 0.8),
-                  0 0 10px rgba(255, 105, 180, 0.8),
-                  0 0 15px rgba(255, 105, 180, 0.8);
     }
 
     /* Modal Styling */
@@ -150,19 +141,12 @@
       align-items: center;
       justify-content: center;
     }
-    .modal-content {
-      position: relative;
-      max-width: 90%;
-      max-height: 90%;
-    }
     .modal img {
       max-width: 90%;
       max-height: 90%;
-      width: auto;
-      height: auto;
       border-radius: 10px;
     }
-      
+
     /* Navigation Buttons */
     .prev, .next {
       position: absolute;
@@ -187,7 +171,7 @@
       cursor: pointer;
     }
 
-    /* Buttons matching pink style from first page */
+    /* Fun Button Styling */
     .btn-fun {
       background-color: #ff5e78;
       color: white;
@@ -199,16 +183,14 @@
       transition: 0.3s;
       text-decoration: none;
       margin: 0.5rem;
-      box-shadow: 0 0 5px rgba(255, 105, 180, 0.8),
-                  0 0 10px rgba(255, 105, 180, 0.8),
-                  0 0 15px rgba(255, 105, 180, 0.8);
+      box-shadow: 0 0 5px rgba(255, 105, 180, 0.8);
     }
     .btn-fun:hover {
       background-color: #ff3c61;
-      box-shadow: 0 0 15px 3px rgba(255, 105, 180, 0.5);
+      box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
     }
 
-    /* Cheesy note at the bottom */
+    /* Cheesy note */
     .cheesy-note {
       font-size: 0.9rem;
       color: #813f3f;
@@ -217,59 +199,41 @@
       font-style: italic;
     }
 
-    /* Floating Hearts Container (hidden by default) */
+    /* Floating Hearts Container */
     #heartContainer {
       position: fixed;
       left: 0;
       right: 0;
-      bottom: 0;
       top: 0;
+      bottom: 0;
       pointer-events: none;
       overflow: hidden;
       z-index: 9999;
       display: none;
     }
-/* Single heart style */
-.heart {
-  position: absolute;
-  top: 0;
-  color: #e23578;
-  font-size: 2rem;
-  opacity: 0;
-  animation: floatHearts 3s ease-in forwards;
-  text-shadow: 
-    0 0 8px rgba(255, 50, 120, 0.9), 
-    0 0 16px rgba(255, 50, 120, 0.8),
-    0 0 24px rgba(255, 20, 90, 0.7),
-    0 0 32px rgba(200, 20, 80, 0.6);
-  filter: drop-shadow(0 0 10px rgba(255, 50, 120, 0.8)) 
-          drop-shadow(0 0 20px rgba(255, 20, 90, 0.6));
-}
-
-    /* Heart float animation (from top to bottom) */
+    .heart {
+      position: absolute;
+      top: 0;
+      color: #e23578;
+      font-size: 2rem;
+      opacity: 0;
+      animation: floatHearts 3s ease-in forwards;
+      text-shadow: 0 0 8px rgba(255,50,120,0.9);
+    }
     @keyframes floatHearts {
-      0% {
-        transform: translateY(0) scale(0.5);
-        opacity: 0;
-      }
-      20% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(800px) scale(1.2);
-        opacity: 0;
-      }
+      0% { transform: translateY(0) scale(0.5); opacity: 0; }
+      20% { opacity: 1; }
+      100% { transform: translateY(800px) scale(1.2); opacity: 0; }
     }
   </style>
 </head>
-
 <body>
-  <!-- Hearts container for the floating hearts effect -->
+  <!-- Hearts container -->
   <div id="heartContainer"></div>
 
   <div class="content">
-    <!-- Title -->
-    <h1 class="main-title">📸 Memory Lane for Rolls! 💖</h1>
+    <!-- Title with an ID for mobile trigger -->
+    <h1 class="main-title" id="secretTrigger">📸 Memory Lane for Rolls! 💖</h1>
 
     <!-- Tabs for different sections -->
     <ul class="nav nav-tabs mb-4" id="memoryTabs">
@@ -285,7 +249,8 @@
       <li class="nav-item">
         <a class="nav-link" data-bs-toggle="tab" href="#Chronicles">🎓Chronicles</a>
       </li>
-      <li class="nav-item">
+      <!-- Secret tab hidden by default -->
+      <li class="nav-item" id="secretTab" style="display: none;">
         <a class="nav-link" data-bs-toggle="tab" href="#shhhhh">🙊 Shhhhh</a>
       </li>
       <li class="nav-item">
@@ -295,76 +260,61 @@
 
     <!-- Tab content -->
     <div class="tab-content">
-      <!-- Just Anna (33 images) -->
       <div class="tab-pane fade show active" id="just_anna">
         <div class="image-gallery" id="gallery-just_anna"></div>
       </div>
-
-      <!-- Just Roll Things (60 images) -->
       <div class="tab-pane fade" id="just-roll-things">
         <div class="image-gallery" id="gallery-just-roll-things"></div>
       </div>
-
-      <!-- ikik (42 images) -->
       <div class="tab-pane fade" id="ikik">
         <div class="image-gallery" id="gallery-ikik"></div>
       </div>
-
-      <!-- Chronicles (103 images) -->
       <div class="tab-pane fade" id="Chronicles">
         <div class="image-gallery" id="gallery-Chronicles"></div>
       </div>
-
-      <!-- Shhhhh (41 images) -->
       <div class="tab-pane fade" id="shhhhh">
         <div class="image-gallery" id="gallery-shhhhh"></div>
       </div>
-
-      <!-- Choti (27 images) -->
       <div class="tab-pane fade" id="choti">
         <div class="image-gallery" id="gallery-choti"></div>
       </div>
     </div>
 
-    <div id="lightbox" class="modal">
-      <span class="close">&times;</span>
-      <button class="prev" style="display: none;">&#10094;</button>
-      <img id="lightbox-img" src="" alt="😅 i actually dont know y some img are not coming i tried my level best 😭 uk my coding skills go with the flow but next works for some images idk soooooooo 
-      OPTION 1: keepp pressing next 
-      OPTION 2: close n select the img where u stoped ok
-      SO OPTION 2 IS A BETTER OPTION BUT UR WISH🥺  ">">
-      <button class="next" style="display: none;">&#10095;</button>
-    </div>
-    
     <!-- Navigation Buttons -->
     <nav class="mt-3">
       <a href="index.html" class="btn-fun">⬅ Back to Home</a>
       <a href="quiz.html" class="btn-fun">✨ Start Fun Quiz! ➡</a>
     </nav>
+    
+    <!-- Placeholder for the one-time Back button -->
+    <div id="secretBackContainer"></div>
 
     <p class="cheesy-note">Hope you love these, even the embarrassing ones! 😆💕</p>
   </div>
 
-  <!-- JavaScript: Load Images, Hearts Animation & Lightbox -->
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="modal">
+    <span class="close">&times;</span>
+    <button class="prev" style="display: none;">&#10094;</button>
+    <img id="lightbox-img" src="" alt="Image preview">
+    <button class="next" style="display: none;">&#10095;</button>
+  </div>
+  
+  <!-- JavaScript -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
   <script>
-    // ----- 1) LOAD IMAGES FROM FOLDERS WITH FALLBACK EXTENSIONS ----- //
+    // --- 1) Load Images with Fallback Extensions ---
     function loadGallery(folder, count, galleryId) {
       const gallery = document.getElementById(galleryId);
       const extensions = ['jpg', 'jpeg', 'heic'];
-
       for (let i = 1; i <= count; i++) {
         const link = document.createElement('a');
         link.setAttribute('data-lightbox', folder);
-
         const img = document.createElement('img');
         img.dataset.extIndex = 0;
-        // Attempt the first extension
         img.src = `anna/${folder}/${i}.${extensions[0]}`;
         link.href = img.src;
-
-        // If an extension fails, try the next
         img.onerror = function() {
           let extIndex = parseInt(this.dataset.extIndex);
           extIndex++;
@@ -374,17 +324,14 @@
             this.src = newSrc;
             link.href = newSrc;
           } else {
-            // Remove from DOM if no extension works
             link.remove();
           }
         };
-
         link.appendChild(img);
         gallery.appendChild(link);
       }
     }
 
-    // Load images for each folder
     loadGallery('just_anna', 33, 'gallery-just_anna');
     loadGallery('just-roll-things', 63, 'gallery-just-roll-things');
     loadGallery('ikik', 45, 'gallery-ikik');
@@ -392,18 +339,14 @@
     loadGallery('shhhhh', 46, 'gallery-shhhhh');
     loadGallery('choti', 29, 'gallery-choti');
 
-    // ----- 2) HEARTS POP ANIMATION FOR THE 'shhhhh' TAB ----- //
+    // --- 2) Hearts Animation for the "shhhhh" Tab ---
     const shhTab = document.querySelector('[href="#shhhhh"]');
     const heartContainer = document.getElementById('heartContainer');
     let heartInterval;
-
-    // When the "shhhhh" tab is shown, continuously create hearts every 300ms
     shhTab.addEventListener('shown.bs.tab', () => {
       heartContainer.style.display = 'block';
       heartInterval = setInterval(createHeart, 300);
     });
-
-    // When the "shhhhh" tab is hidden, clear the interval and remove hearts
     document.addEventListener('hidden.bs.tab', (event) => {
       if (event.target.getAttribute('href') === "#shhhhh") {
         clearInterval(heartInterval);
@@ -411,24 +354,18 @@
         heartContainer.style.display = 'none';
       }
     });
-
-    // Create a heart that starts at the top and floats downward
     function createHeart() {
       const heartEl = document.createElement('div');
       heartEl.classList.add('heart');
       heartEl.textContent = '❤';
-
-      // Random horizontal start position and top fixed at 0
       heartEl.style.left = Math.random() * 100 + '%';
       heartEl.style.top = '0';
-      heartEl.style.fontSize = (1.5 + Math.random() * 1) + 'rem';
-
+      heartEl.style.fontSize = (1.5 + Math.random()) + 'rem';
       heartContainer.appendChild(heartEl);
-      // Remove heart after animation completes
       heartEl.addEventListener('animationend', () => heartEl.remove());
     }
 
-    // ----- 3) LIGHTBOX FUNCTIONALITY ----- //
+    // --- 3) Lightbox Functionality ---
     document.addEventListener("DOMContentLoaded", function () {
       let images = document.querySelectorAll(".image-gallery a");
       let modal = document.querySelector("#lightbox");
@@ -437,7 +374,6 @@
       let prevBtn = document.querySelector(".prev");
       let nextBtn = document.querySelector(".next");
       let currentIndex = 0;
-
       function showModal(index) {
         currentIndex = index;
         modalImg.src = images[currentIndex].href;
@@ -445,35 +381,29 @@
         prevBtn.style.display = "block";
         nextBtn.style.display = "block";
       }
-
       images.forEach((image, index) => {
         image.addEventListener("click", function (event) {
           event.preventDefault();
           showModal(index);
         });
       });
-
       closeBtn.addEventListener("click", function () {
         modal.style.display = "none";
         prevBtn.style.display = "none";
         nextBtn.style.display = "none";
       });
-
       prevBtn.addEventListener("click", function () {
         if (currentIndex > 0) {
           currentIndex--;
           modalImg.src = images[currentIndex].href;
         }
       });
-
       nextBtn.addEventListener("click", function () {
         if (currentIndex < images.length - 1) {
           currentIndex++;
           modalImg.src = images[currentIndex].href;
         }
       });
-
-      // Keyboard navigation for the modal
       document.addEventListener("keydown", (e) => {
         if (modal.style.display === "flex") {
           if (e.key === "ArrowRight" && currentIndex < images.length - 1) {
@@ -491,6 +421,51 @@
           }
         }
       });
+    });
+
+    // --- 4) One-Time Secret Page Access ---
+    let secretAccessed = false; // Ensures one-time access only
+
+    function showSecretPage() {
+      const secretTab = document.getElementById('secretTab');
+      secretTab.style.display = 'block';
+      document.querySelector('#secretTab a').click();
+
+      // Create a one-time "Back" button
+      const backButton = document.createElement('button');
+      backButton.className = 'btn-fun';
+      backButton.textContent = 'Back';
+      backButton.style.marginTop = '1rem';
+      document.getElementById('secretBackContainer').appendChild(backButton);
+
+      backButton.addEventListener('click', function() {
+        secretTab.style.display = 'none';
+        document.querySelector('a[data-bs-toggle="tab"][href="#just_anna"]').click();
+        backButton.remove();
+      });
+    }
+
+    // Desktop trigger: press "d" key once
+    document.addEventListener('keydown', function(e) {
+      if (!secretAccessed && e.key.toLowerCase() === 'd') {
+        secretAccessed = true;
+        showSecretPage();
+      }
+    });
+
+    // Mobile trigger: long press on the title (2 seconds)
+    let touchTimer;
+    const secretTrigger = document.getElementById('secretTrigger');
+    secretTrigger.addEventListener('touchstart', function() {
+      touchTimer = setTimeout(() => {
+        if (!secretAccessed) {
+          secretAccessed = true;
+          showSecretPage();
+        }
+      }, 2000); // 2000ms = 2 seconds
+    });
+    secretTrigger.addEventListener('touchend', function() {
+      clearTimeout(touchTimer);
     });
   </script>
 </body>
